@@ -1,0 +1,28 @@
+CXX = clang++
+SDL = -framework SDL2
+CXXFLAGS = -Wall -c -std=c++11
+SRC = main.cpp game.cpp statemachine.cpp state.cpp gamestate.cpp screen.cpp gamescreen.cpp inputhandler.cpp
+OBJECTS=$(SOURCES:.cpp=.o)
+EXE = prog
+
+all: $(SRC) $(EXE)
+
+$(EXE): $(OBJ)
+	$(CXX) $(SDL) $(OBJ) -o $@
+
+.cpp.o:
+	$(CXX) $(CXXFLAGS) $< -o $@
+
+clean:
+	rm -f *.o
+
+
+
+
+
+#####################
+
+
+
+
+
