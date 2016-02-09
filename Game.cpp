@@ -1,5 +1,7 @@
 #include "header/Game.hpp"
 
+Game* Game::instance_;
+
 Game::Game(int width, int height)
 {
 	dt_ = 0.0;
@@ -18,6 +20,11 @@ Game::~Game()
 	SDL_DestroyRenderer(renderer_);
 	SDL_DestroyWindow(window_);
 	SDL_Quit();
+}
+
+Game& Game::getInstance()
+{
+	return *instance_;
 }
 
 void Game::run()
@@ -78,4 +85,9 @@ void Game::calculateDeltaTime()
 {
 	dt_ = (float)(SDL_GetTicks() - frameStart_) / 1000.0;
 	frameStart_ = SDL_GetTicks();
+}
+
+SDL_Renderer* Game::getRenderer()
+{
+	return renderer_;
 }
