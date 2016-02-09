@@ -16,13 +16,23 @@ $(EXE): $(OBJ)
 clean:
 	rm -f *.o
 
+#####################
 
+all: main
 
+main:
+ g++ src/*.cpp src/*/*.cpp -o segmenter -D _DEBUG `pkg-config --cflags --libs opencv` -std=c++11 -g
 
 
 #####################
 
+CXX = clang++
+SDL = -framework SDL2
+CXXFLAGS = -Wall -c -std=c++11
+EXE = prog
 
+all: $(EXE)
 
-
+$(EXE):
+	$(CXX) $(SDL) *.cpp $(CXXFLAGS) -o $@
 

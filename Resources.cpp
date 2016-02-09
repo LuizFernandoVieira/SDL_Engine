@@ -10,12 +10,16 @@ std::shared_ptr<SDL_Texture> Resources::GetImage(std::string file)
 	auto it = imageTable.find(file);
 
 	if ( it == imageTable.end() ) {
+
 		SDL_Texture* texture = IMG_LoadTexture ( Game::getInstance().getRenderer() , file.c_str() );
+
 		if (texture == NULL) {
 			std::string imgError = IMG_GetError();
 			//throw ExcecaoTextura( "Erro no carregamento da textura " + file + '\n' + imgError );
 		}
+
 		std::shared_ptr<SDL_Texture> ptr (texture, deleteTexture);
+
 		imageTable.emplace(file, ptr);
 		return ptr;
 	} else {

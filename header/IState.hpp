@@ -9,7 +9,7 @@ class IState
 public:
 	virtual ~IState() {}
 	virtual void create(StateMachine& stateMachine) = 0;
-	virtual void update() = 0;
+	virtual void update(float dt) = 0;
 	virtual void render() = 0;
 	virtual void handle(StateEventEnum& event) = 0;
 };

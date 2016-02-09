@@ -9,7 +9,7 @@ class StateMachine
 {
 public:
 	void create();
-	void update();
+	void update(float dt);
 	void render();
 	void changeState(State& state);
 	void handle(StateEventEnum& event);

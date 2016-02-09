@@ -7,6 +7,12 @@ Game::Game(int width, int height)
 	dt_ = 0.0;
 	frameStart_ = 0;
 
+	if (instance_ != NULL) {
+		std::cerr << "Ja existe uma instancia do jogo executando" << std::endl;
+		exit(1);
+	}
+	instance_ = this;
+
 	initSDL();
 	initWindow(width, height);
 	initRenderer();
@@ -32,7 +38,7 @@ void Game::run()
 	while(!stateMachine_->getState()->quitRequested())
 	{
 		calculateDeltaTime();
-		stateMachine_->update();
+		stateMachine_->update(dt_);
 		stateMachine_->render();
 		SDL_RenderPresent(renderer_);
 		if ( (float)(SDL_GetTicks() - frameStart_) < 1000.0 / 60.0 )

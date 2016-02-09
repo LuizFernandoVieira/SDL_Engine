@@ -7,9 +7,9 @@ void StateMachine::create()
 	state_->create(*this); 
 }
 
-void StateMachine::update()
+void StateMachine::update(float dt)
 {
-	state_->update();
+	state_->update(dt);
 }
 
 void StateMachine::render()

@@ -1,26 +1,28 @@
 #include "header/GameState.hpp"
-#include "header/GameScreen.hpp"
+
+#include <iostream>
 
 void GameState::create(StateMachine& stateMachine)
 {
 	setStateMachine(stateMachine);
-	GameScreen* gameScreen = new GameScreen();
-	setScreen(*gameScreen);
-	getScreen()->setStateMachine(stateMachine);
-	getScreen()->create();
-
+	firstLevel_	= new FirstLevel();
 	inputHandler =  new InputHandler();
+	firstLevel_->create();
 }
 
-void GameState::update()
+void GameState::update(float dt)
 {
-	getScreen()->update();
-
+	firstLevel_->update(dt);
 	inputHandler->handleInput();
 
 	if (inputHandler->quitRequested()) {
 		quit = true;
 	}
+}
+
+void GameState::render()
+{
+	firstLevel_->render();
 }
 
 void GameState::handle(StateEventEnum& event)

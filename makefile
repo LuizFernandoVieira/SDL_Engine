@@ -10,7 +10,7 @@ EXE = prog
 
 all: $(EXE)
 
-$(EXE): main.o game.o statemachine.o state.o gamestate.o screen.o gamescreen.o inputhandler.o sprite.o resources.o
+$(EXE): main.o game.o statemachine.o state.o gamestate.o firstlevel.o inputhandler.o sprite.o resources.o player.o rect.o
 	$(CXX) $(LDFLAGS) $^ -o $@
 
 main.o: main.cpp
@@ -28,10 +28,7 @@ state.o: State.cpp
 gamestate.o: GameState.cpp
 	$(CXX) $(CXXFLAGS) $< -o $@
 
-screen.o: Screen.cpp
-	$(CXX) $(CXXFLAGS) $< -o $@
-
-gamescreen.o: GameScreen.cpp
+firstlevel.o: FirstLevel.cpp
 	$(CXX) $(CXXFLAGS) $< -o $@
 
 inputhandler.o: InputHandler.cpp
@@ -41,7 +38,13 @@ sprite.o: Sprite.cpp
 	$(CXX) $(CXXFLAGS) $< -o $@
 
 resources.o: Resources.cpp
-	$(CXX) $(CXXFLAGS) $< -o $@	
+	$(CXX) $(CXXFLAGS) $< -o $@
+
+player.o: Player.cpp
+	$(CXX) $(CXXFLAGS) $< -o $@
+
+rect.o: Rect.cpp
+	$(CXX) $(CXXFLAGS) $< -o $@
 
 clean:
 	rm -f *.o
