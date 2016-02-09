@@ -4,8 +4,8 @@
 	#include <SDL2/SDL_image.h>
 #endif
 
-#include "header/Resources.hpp"
-#include "header/Game.hpp"
+#include "../include/Resources.hpp"
+#include "../include/Game.hpp"
 
 std::unordered_map<std::string, std::shared_ptr<SDL_Texture>> Resources::imageTable;
 

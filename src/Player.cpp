@@ -1,4 +1,4 @@
-#include "header/Player.hpp"
+#include "../include/Player.hpp"
 
 Player::Player(float x, float y) : sprite_("img/player.png")
 {

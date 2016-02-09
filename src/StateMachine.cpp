@@ -1,5 +1,5 @@
-#include "header/StateMachine.hpp"
-#include "header/GameState.hpp"
+#include "../include/StateMachine.hpp"
+#include "../include/GameState.hpp"
 
 void StateMachine::create()
 {

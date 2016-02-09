@@ -4,47 +4,30 @@ SDL_image = -framework SDL2_image
 SDL_mixer = -framework SDL2_mixer
 SDL_ttf = -framework SDL2_ttf
 
+SRCDIR = src
+BUILDDIR = build
+EXE = bin/prog
+
+SRCEXT = cpp
+SOURCES = $(shell find $(SRCDIR) -type f -name *.$(SRCEXT))
+OBJECTS = $(patsubst $(SRCDIR)/%,$(BUILDDIR)/%,$(SOURCES:.$(SRCEXT)=.o))
+
 CXXFLAGS = -Wall -c -std=c++11
-LDFLAGS = $(SDL) $(SDL_image)
-EXE = prog
+LIB = $(SDL) $(SDL_image)
 
-all: $(EXE)
+INC = -I include
 
-$(EXE): main.o game.o statemachine.o state.o gamestate.o firstlevel.o inputhandler.o sprite.o resources.o player.o rect.o
-	$(CXX) $(LDFLAGS) $^ -o $@
 
-main.o: main.cpp
-	$(CXX) $(CXXFLAGS) $< -o $@
+$(EXE): $(OBJECTS)
+	@echo " Linking..."
+	@echo " $(CXX) $^ -o $(EXE) $(LIB)"; $(CXX) $^ -o $(EXE) $(LIB)
 
-game.o: Game.cpp
-	$(CXX) $(CXXFLAGS) $< -o $@
-
-statemachine.o: StateMachine.cpp
-	$(CXX) $(CXXFLAGS) $< -o $@
-
-state.o: State.cpp
-	$(CXX) $(CXXFLAGS) $< -o $@
-
-gamestate.o: GameState.cpp
-	$(CXX) $(CXXFLAGS) $< -o $@
-
-firstlevel.o: FirstLevel.cpp
-	$(CXX) $(CXXFLAGS) $< -o $@
-
-inputhandler.o: InputHandler.cpp
-	$(CXX) $(CXXFLAGS) $< -o $@
-
-sprite.o: Sprite.cpp
-	$(CXX) $(CXXFLAGS) $< -o $@
-
-resources.o: Resources.cpp
-	$(CXX) $(CXXFLAGS) $< -o $@
-
-player.o: Player.cpp
-	$(CXX) $(CXXFLAGS) $< -o $@
-
-rect.o: Rect.cpp
-	$(CXX) $(CXXFLAGS) $< -o $@
+$(BUILDDIR)/%.o: $(SRCDIR)/%.$(SRCEXT)
+	@mkdir -p $(BUILDDIR)
+	@echo " $(CXX) $(CXXFLAGS) $(INC) -c -o $@ $<"; $(CXX) $(CXXFLAGS) $(INC) -o $@ $<
 
 clean:
-	rm -f *.o
+	@echo " Cleaning..."; 
+	@echo " $(RM) -r $(BUILDDIR) $(EXE)"; $(RM) -r $(BUILDDIR) $(EXE)
+
+.PHONY: clean

@@ -1,4 +1,4 @@
-#include "header/Game.hpp"
+#include "../include/Game.hpp"
 
 Game* Game::instance_;
 

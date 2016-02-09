@@ -1,6 +1,6 @@
 #include <iostream>
 
-#include "header/Game.hpp"
+#include "../include/Game.hpp"
 
 int main()
 {

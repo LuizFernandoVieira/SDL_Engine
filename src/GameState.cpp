@@ -1,4 +1,4 @@
-#include "header/GameState.hpp"
+#include "../include/GameState.hpp"
 
 void GameState::create(StateMachine& stateMachine)
 {

@@ -1,4 +1,4 @@
-#include "header/Rect.hpp"
+#include "../include/Rect.hpp"
 
 Rect::Rect()
 {
