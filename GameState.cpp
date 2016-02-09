@@ -1,7 +1,5 @@
 #include "header/GameState.hpp"
 
-#include <iostream>
-
 void GameState::create(StateMachine& stateMachine)
 {
 	setStateMachine(stateMachine);

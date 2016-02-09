@@ -1,11 +1,9 @@
 #ifndef SPRITE_HPP
 #define SPRITE_HPP
 
-#ifdef __APPLE__
-	#include <SDL2/SDL.h>
-#endif
+#include <SDL2/SDL.h>
 
-#include <iostream>
+#include <memory>
 
 class Sprite
 {

@@ -1,9 +1,7 @@
 #ifndef RESOURCES_HPP
 #define RESOURCES_HPP
 
-#ifdef __APPLE__
-	#include <SDL2/SDL.h>
-#endif
+#include <SDL2/SDL.h>
 
 #include <unordered_map>
 #include <string>

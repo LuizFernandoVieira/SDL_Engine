@@ -1,9 +1,7 @@
 #ifndef GAME_HPP
 #define GAME_HPP
 
-#ifdef __APPLE__
-	#include <SDL2/SDL.h>
-#endif
+#include <SDL2/SDL.h>
 
 #include <iostream>
 
