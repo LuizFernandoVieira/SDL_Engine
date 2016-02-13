@@ -1,7 +1,10 @@
 #include "../include/InputHandler.hpp"
+#include "../include/JumpCommand.hpp"
 
 InputHandler::InputHandler()
 {
+	keySpace_ = new JumpCommand();
+
 	for (int i = 0; i < 6; i++) {
 		mouseState[i] = false;
 		mouseUpdate[i] = 0;
@@ -18,7 +21,7 @@ InputHandler::InputHandler()
 	mouseY = 0;
 }
 
-void InputHandler::handleInput()
+Command* InputHandler::handleInput()
 {
 	SDL_Event event;
 
@@ -27,21 +30,28 @@ void InputHandler::handleInput()
 
 	SDL_GetMouseState(&mouseX, &mouseY);
 
-	while (SDL_PollEvent(&event))
+	while(SDL_PollEvent(&event))
 	{
-		if (event.type == SDL_QUIT)
+		if(event.type == SDL_QUIT)
 		{
 			quit = true;
+		}
+
+		if(event.type == SDLK_KP_SPACE)
+		{
+			return keySpace_;
 		}
 
 		if(event.type == SDL_CONTROLLERBUTTONDOWN) 
 		{
 			if(event.cbutton.button == SDL_CONTROLLER_BUTTON_A)
 			{
-				quit = true;
+				return keySpace_;
 			}
 		}
 	}
+
+	return NULL;
 }
 
 bool InputHandler::keyPress(int key)

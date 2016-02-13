@@ -9,7 +9,8 @@ class JumpCommand : public Command
 public:
 	virtual void execute(GameObject& gameObject)
 	{
-		
+		std::cout << "PULA!!!" << std::endl;
+		//gameObject.jump();
 	}
 };
 

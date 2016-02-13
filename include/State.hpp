@@ -15,6 +15,8 @@ public:
 	bool quitRequested();
 	StateMachine* getStateMachine();
 	void setStateMachine(StateMachine& stateMachine);
+	bool getQuit() { return quit; }
+	void setQuit(bool q) { quit = q; } 
 protected:
 	bool quit;
 private:

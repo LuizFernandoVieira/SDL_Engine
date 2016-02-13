@@ -3,19 +3,13 @@
 void GameState::create(StateMachine& stateMachine)
 {
 	setStateMachine(stateMachine);
-	firstLevel_	= new FirstLevel();
-	inputHandler_ =  new InputHandler();
+	firstLevel_	= new FirstLevel(*this);
 	firstLevel_->create();
 }
 
 void GameState::update(float dt)
 {
 	firstLevel_->update(dt);
-	inputHandler_->handleInput();
-
-	if (inputHandler_->quitRequested()) {
-		quit = true;
-	}
 }
 
 void GameState::render()

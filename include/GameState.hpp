@@ -4,7 +4,6 @@
 #include "State.hpp"
 #include "StateMachine.hpp"
 #include "StateEventEnum.hpp"
-#include "InputHandler.hpp"
 #include "FirstLevel.hpp"
 
 class GameState: public State
@@ -16,7 +15,6 @@ public:
 	void handle(StateEventEnum& event);
 private:
 	FirstLevel* firstLevel_;
-	InputHandler* inputHandler_;
 };
 
 #endif

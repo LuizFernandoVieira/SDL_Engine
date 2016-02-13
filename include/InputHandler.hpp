@@ -7,6 +7,8 @@
 
 #include <iostream>
 
+#include "Command.hpp"
+
 #define LEFT_ARROW_KEY SDLK_LEFT
 #define RIGHT_ARROW_KEY SDLK_RIGHT
 #define UP_ARROW_KEY SDLK_UP
@@ -20,7 +22,7 @@ class InputHandler
 {
 public:
 	InputHandler();
-	void handleInput();
+	Command* handleInput();
 	bool keyPress(int key);
 	bool keyRelease(int key);
 	bool isKeyDown(int key);
@@ -31,6 +33,7 @@ public:
 	int getMouseY();
 	bool quitRequested();
 private:
+	Command* keySpace_;
 	bool mouseState[6];
 	int mouseUpdate[6];
 	bool keyState[416];
