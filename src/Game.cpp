@@ -16,6 +16,7 @@ Game::Game(int width, int height)
 	initSDL();
 	initWindow(width, height);
 	initRenderer();
+	initControllers();
 
 	stateMachine_ = new StateMachine();
 	stateMachine_->create();
@@ -85,6 +86,20 @@ void Game::initRenderer()
 			std::endl << SDL_GetError() << std::endl;
 		exit(1);
 	}	
+}
+
+void Game::initControllers()
+{
+	for(int i=0; i<SDL_NumJoysticks(); i++)
+	{
+		if(SDL_IsGameController(i)) {
+			printf("Index \'%i\' is a compatible controller, named \'%s\'\n", i, SDL_GameControllerNameForIndex(i));
+			controller_ = SDL_GameControllerOpen(i);
+			printf("Controller %i is mapped as \"%s\".\n", i, SDL_GameControllerMapping(controller_));
+		} else {
+			printf("Index \'%i\' is not a compatible controller.", i);
+		}
+	}
 }
 
 void Game::calculateDeltaTime()

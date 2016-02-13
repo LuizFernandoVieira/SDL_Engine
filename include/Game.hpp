@@ -2,6 +2,7 @@
 #define GAME_HPP
 
 #include <SDL2/SDL.h>
+#include <SDL2/SDL_gamecontroller.h>
 
 #include <iostream>
 
@@ -20,9 +21,11 @@ private:
 	void initSDL();
 	void initWindow(int width, int height);
 	void initRenderer();
+	void initControllers();
 	void calculateDeltaTime();
 	SDL_Window* window_;
 	SDL_Renderer* renderer_;
+	SDL_GameController* controller_;
 	StateMachine* stateMachine_;
 	float dt_;
 	int frameStart_;

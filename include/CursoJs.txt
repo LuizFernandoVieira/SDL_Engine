@@ -1,0 +1,86 @@
+#####################
+
+FULL STACK JAVASCRIPT
+
+Pre-requisitos
+	Para seguir esse tutorial é essencial que o leitor tenha conhecimento básico em tecnologias como html e css.
+
+Ementa
+	Sintaxe
+		var
+		function
+		loops
+		arrays
+		objects
+	Paginas interativas
+		getelement
+		innerhtml
+	Orientacao a objetos
+		prototype
+	Padroes Javascript
+
+#####################
+
+
+Se você já desenvolveu alguma aplicação web deve ter notado que o uso do HTML e do CSS não são suficientes para garantir ambientes interativos. É ai que entra o JavaScript.
+
+JavaScript é uma linguagem de programação interpretada, ou seja, o código escrito em JavaScript é executado por um programa chamado interpretador. Ela foi criada por Brendan Eich em 1995
+
+Existem tambem linguagens de script que sao linguagens interpretadas executadas no interior de programas 	e/ou linguagens de programacao
+
+O primeiro passo para aprender JavaScript é aprender como adicioná-lo em suas páginas. A primeira forma seria a seguinte:
+
+<html>
+	<head>
+		<script type='text/javascript'>
+			// Coloque seu JavaScript aqui !!!
+		</script>
+	</head>
+	<body>
+	</body>
+</html>
+
+
+
+
+Brendan Eich criou javascript pq queria web pages dinamicas.
+Ele comecou com um modelo chamado Mocha que virou LiveScript.
+Notou muitas similaridades com Java e chamou LiveScript de JavaScript.
+Brendan criou ECMA standarts.
+Jscript 			-> Microsoft
+Actionscirpt	-> Adobe
+Objective-J		-> 280 studios
+JavaScript 		-> Mozila
+Microsoft x Mozila
+Jscript x JavaScript
+Internet Explorer came with Windows
+JavaScript development slowed
+Web 2.0 -> JavaScript (ajax nodejs)
+Web 3.0 -> natural language processing machine learning data-mining
+
+
+
+
+JavaScript was originally named Mocha and changed to Livescript but ultimately became JavaScript.
+
+It's important to note that JavaScript came before ECMAscript and the history will tell you why.
+
+To start from the beginning, JavaScript derived its name from Java and initially Brendan Eich (the creator of JS) was asked to develop a language that resembled Java for the web for Netscape.
+
+Eich, however decided that Java was too complicated with all its rules and so set out to create a simpler language that even a beginner could code in. This is evident in such things like the relaxing of the need to have a semicolon.
+
+After the language was complete, the marketing team of Netscape requested Sun to allow them to name it JavaScript as a marketing stunt and hence why most people who have never used JavaScript think it's related to Java.
+
+About a year or two after JavaScript's release in the browser, Microsoft's IE took the language and started making its own implementations such as JScript. At the same time, IE was dominating the market and not long after Netscape had to shut its project.
+
+Before Netscape went down, they decided to start a standard that would guide the path of JavaScript, named ECMAScript.
+
+ECMAScript had a few releases and in 1999 they released their last version (ECMAScript 3) before they went into hibernation for the next 10 years. During this 10 years, Microsoft dominated the scenes but at the same time they weren't improving their product and hence Firefox was born (led by Eich) and a whole heap of other browsers such as Chrome, Opera.
+
+ECMAScript released its 5th Edition in 2009 (the 4th edition was abandoned) with features such as strict mode. Since then, ECMAScript has gained a lot of momentum and is scheduled to release its 6th Edition in a few months from now with the biggest changes its had thus far.
+
+You can use a list of features for ECMAScript 6 here http://kangax.github.io/es5-compat-table/es6/ and also the browser support. You can even start writing Ecmascript 6 like you do with CoffeeScript and use a compiler to compile down to Ecmascript 5.
+
+Whether ECMAScript is the language and JavaScript is a dialect is arguable, but not important. If you continue to think like this it might confuse you. There is no compiler out there that would run ECMAScript, and I believe JavaScript is considered the Language which implements a standard called ECMAScript.
+
+There are also other noticeable languages that implement ECMAScript such as ActionScript (used for Flash)

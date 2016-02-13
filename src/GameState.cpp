@@ -4,16 +4,16 @@ void GameState::create(StateMachine& stateMachine)
 {
 	setStateMachine(stateMachine);
 	firstLevel_	= new FirstLevel();
-	inputHandler =  new InputHandler();
+	inputHandler_ =  new InputHandler();
 	firstLevel_->create();
 }
 
 void GameState::update(float dt)
 {
 	firstLevel_->update(dt);
-	inputHandler->handleInput();
+	inputHandler_->handleInput();
 
-	if (inputHandler->quitRequested()) {
+	if (inputHandler_->quitRequested()) {
 		quit = true;
 	}
 }

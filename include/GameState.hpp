@@ -16,7 +16,7 @@ public:
 	void handle(StateEventEnum& event);
 private:
 	FirstLevel* firstLevel_;
-	InputHandler* inputHandler;
+	InputHandler* inputHandler_;
 };
 
 #endif

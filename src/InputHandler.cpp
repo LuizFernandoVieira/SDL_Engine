@@ -33,6 +33,14 @@ void InputHandler::handleInput()
 		{
 			quit = true;
 		}
+
+		if(event.type == SDL_CONTROLLERBUTTONDOWN) 
+		{
+			if(event.cbutton.button == SDL_CONTROLLER_BUTTON_A)
+			{
+				quit = true;
+			}
+		}
 	}
 }
 
