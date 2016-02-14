@@ -1,11 +1,14 @@
 #ifndef RECT_HPP
 #define RECT_HPP
 
+#include "Point.hpp"
+
 class Rect
 {
 public:
 	Rect();
-	Rect(const float x, const float y, const float w, const float h);
+	Rect(float x, float y, float w, float h);
+	Point getCenter();
 	float getX();
 	float getY();
 	float getW();

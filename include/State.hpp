@@ -4,8 +4,6 @@
 #include "IState.hpp"
 #include "StateMachine.hpp"
 
-class Screen;
-
 class State: public IState
 {
 public:

@@ -1,6 +1,8 @@
 #include "../include/Player.hpp"
 
-Player::Player(float x, float y) : sprite_("img/player.png")
+#include <iostream>
+
+Player::Player(float x, float y) : sprite_("../img/player.png")
 {
 	rect_ = Rect(x, y, sprite_.getWidth(), sprite_.getHeight());
 }

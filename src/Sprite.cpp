@@ -1,6 +1,7 @@
 #include "../include/Sprite.hpp"
 #include "../include/Game.hpp"
 #include "../include/Resources.hpp"
+#include "../include/Camera.hpp"
 
 Sprite::Sprite()
 {
@@ -50,8 +51,8 @@ void Sprite::render(int x, int y, float angle)
 {
 	SDL_Rect dstRect;
 
-	dstRect.x = x;	// - Camera::pos.x;
-	dstRect.y = y;	// - Camera::pos.y;
+	dstRect.x = x - Camera::getPosition().getX();
+	dstRect.y = y - Camera::getPosition().getY();
 	dstRect.w = clipRect_.w * scaleX_;
 	dstRect.h = clipRect_.h * scaleY_;
 

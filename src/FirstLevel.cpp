@@ -1,11 +1,14 @@
 #include "../include/FirstLevel.hpp"
+#include "../include/Camera.hpp"
 #include "../include/Command.hpp"
 
 FirstLevel::FirstLevel(State& state)
 {
 	state_ = &state;
 	inputHandler_ =  new InputHandler();
-	player_ = new Player(32, 32);
+	Camera::setInputHandler(*inputHandler_);
+	player_ = new Player(128, 128);
+	Camera::follow(*player_);
 }
 
 FirstLevel::~FirstLevel()
@@ -27,6 +30,8 @@ void FirstLevel::update(float dt)
 	}
 
 	player_->update(dt);
+
+	Camera::update(dt);
 
 	if (inputHandler_->quitRequested()) {
 		state_->setQuit(true);

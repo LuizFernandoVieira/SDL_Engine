@@ -8,12 +8,17 @@ Rect::Rect()
 	h_ = 0.0;
 }
 
-Rect::Rect(const float x, const float y, const float w, const float h)
+Rect::Rect(float x, float y, float w, float h)
 {
 	x_ = x;
 	y_ = y;
 	w_ = w;
 	h_ = h;
+}
+
+Point Rect::getCenter()
+{
+	return Point(x_+(w_ /2), y_+(h_ /2));
 }
 
 float Rect::getX()
