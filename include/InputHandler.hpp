@@ -6,6 +6,7 @@
 #endif
 
 #include <iostream>
+#include <vector>
 
 #include "Command.hpp"
 
@@ -22,7 +23,7 @@ class InputHandler
 {
 public:
 	InputHandler();
-	Command* handleInput();
+	std::vector<Command*> handleInput();
 	bool keyPress(int key);
 	bool keyRelease(int key);
 	bool isKeyDown(int key);
@@ -34,6 +35,8 @@ public:
 	bool quitRequested();
 private:
 	Command* keySpace_;
+	Command* keyA_;
+	Command* keyD_;
 	bool mouseState[6];
 	int mouseUpdate[6];
 	bool keyState[416];

@@ -1,9 +1,12 @@
 #include "../include/InputHandler.hpp"
 #include "../include/JumpCommand.hpp"
+#include "../include/MoveCommand.hpp"
 
 InputHandler::InputHandler()
 {
 	keySpace_ = new JumpCommand();
+	keyA_ = new MoveCommand(false);
+	keyD_ = new MoveCommand(true);
 
 	for (int i = 0; i < 6; i++) {
 		mouseState[i] = false;
@@ -21,7 +24,7 @@ InputHandler::InputHandler()
 	mouseY = 0;
 }
 
-Command* InputHandler::handleInput()
+std::vector<Command*> InputHandler::handleInput()
 {
 	SDL_Event event;
 
@@ -30,28 +33,71 @@ Command* InputHandler::handleInput()
 
 	SDL_GetMouseState(&mouseX, &mouseY);
 
+	std::vector<Command*> commands;
+
 	while(SDL_PollEvent(&event))
 	{
 		if(event.type == SDL_QUIT)
 		{
 			quit = true;
-		}
+		}	
 
-		if(event.type == SDLK_KP_SPACE)
+		if(event.type == SDL_KEYDOWN)
 		{
-			return keySpace_;
+			if(event.key.keysym.sym == LEFT_ARROW_KEY)
+			{
+				commands.emplace_back(keyA_);
+			}
+
+			if(event.key.keysym.sym == RIGHT_ARROW_KEY)
+			{
+				commands.emplace_back(keyD_);
+			}
+
+			if(event.key.keysym.sym == SPACE_BAR)
+			{
+				commands.emplace_back(keySpace_);
+			}
 		}
 
-		if(event.type == SDL_CONTROLLERBUTTONDOWN) 
+		if(event.type == SDL_CONTROLLERBUTTONDOWN)
 		{
 			if(event.cbutton.button == SDL_CONTROLLER_BUTTON_A)
 			{
-				return keySpace_;
+				commands.emplace_back(keySpace_);
+			}
+		}
+
+		if (event.type == SDL_KEYDOWN && !event.key.repeat)
+		{
+			if (event.key.keysym.sym < 0x40000000)
+			{
+				keyState[event.key.keysym.sym] = true;
+				keyUpdate[event.key.keysym.sym] = updateCounter;
+			}
+			else
+			{
+				keyState[event.key.keysym.sym - 0x3FFFFF81] = true;
+				keyUpdate[event.key.keysym.sym - 0x3FFFFF81] = updateCounter;
+			}
+		}
+
+		if (event.type == SDL_KEYUP && !event.key.repeat)
+		{
+			if (event.key.keysym.sym < 0x40000000)
+			{
+				keyState[event.key.keysym.sym] = false;
+				keyUpdate[event.key.keysym.sym] = updateCounter;
+			}
+			else
+			{
+				keyState[event.key.keysym.sym - 0x3FFFFF81] = false;
+				keyUpdate[event.key.keysym.sym - 0x3FFFFF81] = updateCounter;
 			}
 		}
 	}
 
-	return NULL;
+	return commands;
 }
 
 bool InputHandler::keyPress(int key)

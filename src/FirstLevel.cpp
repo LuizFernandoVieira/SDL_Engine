@@ -23,10 +23,10 @@ void FirstLevel::create()
 
 void FirstLevel::update(float dt)
 {
-	Command* command = inputHandler_->handleInput();
-	if(command)
+	std::vector <Command*> commands = inputHandler_->handleInput();
+	for(auto it = commands.begin(); it != commands.end(); ++it)
 	{
-		command->execute(*player_);
+		(*it)->execute(*player_);
 	}
 
 	player_->update(dt);
