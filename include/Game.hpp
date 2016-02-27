@@ -1,10 +1,17 @@
 #ifndef GAME_HPP
 #define GAME_HPP
 
-#include <SDL2/SDL.h>
-#include <SDL2/SDL_gamecontroller.h>
+#ifdef __APPLE__
+	#include <SDL2/SDL.h>
+	#include <SDL2/SDL_gamecontroller.h>
+#else
+	#include "SDL.h"
+	#include "SDL_gamecontroller.h"
+#endif
 
 #include <iostream>
+#include <cstdio>
+#include <cstdlib>
 
 #include "StateMachine.hpp"
 
