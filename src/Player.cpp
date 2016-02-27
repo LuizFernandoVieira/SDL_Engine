@@ -21,3 +21,13 @@ void Player::render()
 {
 	sprite_.render(rect_.getX(), rect_.getY());
 }
+
+void Player::moveTo(float x, float y)
+{
+	std::cout << "MOVING" << std::endl;
+}
+
+void Player::jump()
+{
+	std::cout << "JUMPING" << std::endl;
+}

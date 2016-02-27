@@ -7,10 +7,9 @@
 class JumpCommand : public Command
 {
 public:
-	virtual void execute(GameObject& gameObject)
+	virtual void execute(GameActor& gameActor)
 	{
-		std::cout << "PULA!!!" << std::endl;
-		//gameObject.jump();
+		gameActor.jump();
 	}
 };
 

@@ -7,14 +7,12 @@ class MoveCommand : public Command
 {
 public:
 	MoveCommand(bool right) { right_ = right; }
-	virtual void execute(GameObject& gameObject)
+	virtual void execute(GameActor& gameActor)
 	{
 		if(right_) {
-			std::cout << "MOVE RIGHT" << std::endl;
-			//gameObject_.moveTo(gameObject_.getRect().getX() + 3, 0);	
+			gameActor.moveTo(gameActor.getRect().getX() + 3, 0);	
 		} else {
-			std::cout << "MOVE LEFT" << std::endl;
-			//gameObject_.moveTo(gameObject_.getRect().getX() - 3, 0);	
+			gameActor.moveTo(gameActor.getRect().getX() - 3, 0);	
 		}
 	}
 private:
