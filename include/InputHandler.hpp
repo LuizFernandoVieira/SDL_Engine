@@ -37,8 +37,10 @@ public:
 	bool quitRequested();
 private:
 	Command* keySpace_;
-	Command* keyA_;
+	Command* keyW_;
 	Command* keyD_;
+	Command* keyS_;
+	Command* keyA_;
 	bool mouseState[6];
 	int mouseUpdate[6];
 	bool keyState[416];

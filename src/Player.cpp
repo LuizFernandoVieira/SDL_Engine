@@ -24,7 +24,8 @@ void Player::render()
 
 void Player::moveTo(float x, float y)
 {
-	std::cout << "MOVING" << std::endl;
+	rect_.setX(x);
+	rect_.setY(y);
 }
 
 void Player::jump()

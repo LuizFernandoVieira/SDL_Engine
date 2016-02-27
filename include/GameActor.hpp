@@ -8,7 +8,7 @@
 class GameActor : public GameObject
 {
 public:
-	virtual void moveTo(float x, float y) { std::cout << "oi";} //= 0;
+	virtual void moveTo(float x, float y) = 0;
 	virtual void jump() = 0;
 };
 

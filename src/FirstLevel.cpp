@@ -7,8 +7,9 @@ FirstLevel::FirstLevel(State& state)
 	state_ = &state;
 	inputHandler_ =  new InputHandler();
 	Camera::setInputHandler(*inputHandler_);
+	bg_ = new Sprite("../img/bg.png");
 	player_ = new Player(128, 128);
-	Camera::follow(*player_);
+	//Camera::follow(*player_);
 }
 
 FirstLevel::~FirstLevel()
@@ -40,5 +41,6 @@ void FirstLevel::update(float dt)
 
 void FirstLevel::render()
 {
+	bg_->render(0, 0);
 	player_->render();
 }

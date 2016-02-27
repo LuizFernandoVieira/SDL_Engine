@@ -17,6 +17,7 @@ public:
 private:
 	State* state_;
 	InputHandler* inputHandler_;
+	Sprite* bg_;
 	Player* player_;
 };
 

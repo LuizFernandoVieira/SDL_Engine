@@ -5,8 +5,10 @@
 InputHandler::InputHandler()
 {
 	keySpace_ = new JumpCommand();
-	keyA_ = new MoveCommand(false);
-	keyD_ = new MoveCommand(true);
+	keyA_ = new MoveCommand(false, false, false, true);
+	keyD_ = new MoveCommand(false, true, false, false);
+	keyW_ = new MoveCommand(true, false, false, false);
+	keyS_ = new MoveCommand(false, false, true, false);
 
 	for (int i = 0; i < 6; i++) {
 		mouseState[i] = false;
@@ -44,14 +46,21 @@ std::vector<Command*> InputHandler::handleInput()
 
 		if(event.type == SDL_KEYDOWN)
 		{
-			if(event.key.keysym.sym == LEFT_ARROW_KEY)
+			if(event.key.keysym.sym == UP_ARROW_KEY)
 			{
-				commands.emplace_back(keyA_);
+				commands.emplace_back(keyW_);
 			}
-
 			if(event.key.keysym.sym == RIGHT_ARROW_KEY)
 			{
 				commands.emplace_back(keyD_);
+			}
+			if(event.key.keysym.sym == DOWN_ARROW_KEY)
+			{
+				commands.emplace_back(keyS_);
+			}
+			if(event.key.keysym.sym == LEFT_ARROW_KEY)
+			{
+				commands.emplace_back(keyA_);
 			}
 
 			if(event.key.keysym.sym == SPACE_BAR)

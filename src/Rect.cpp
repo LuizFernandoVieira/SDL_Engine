@@ -40,3 +40,23 @@ float Rect::getH()
 {
 	return h_;
 }
+
+void Rect::setX(float x)
+{
+	x_ = x;
+}
+
+void Rect::setY(float y)
+{
+	y_ = y;
+}
+
+void Rect::setW(float w)
+{
+	w_ = w;
+}
+
+void Rect::setH(float h)
+{
+	h_ = h;
+}
