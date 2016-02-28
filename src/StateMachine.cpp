@@ -1,9 +1,11 @@
 #include "../include/StateMachine.hpp"
 #include "../include/GameState.hpp"
+#include "../include/LevelEditorState.hpp"
 
 void StateMachine::create()
 {
-	state_ = new GameState();
+	// state_ = new GameState();
+	state_ = new LevelEditorState();
 	state_->create(*this); 
 }
 
