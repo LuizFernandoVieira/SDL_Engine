@@ -41,6 +41,7 @@ private:
 	Command* keyD_;
 	Command* keyS_;
 	Command* keyA_;
+	Command* keyT_;
 	bool mouseState[6];
 	int mouseUpdate[6];
 	bool keyState[416];

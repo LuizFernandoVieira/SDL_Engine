@@ -9,7 +9,7 @@ FirstLevelEditor::FirstLevelEditor(State& state)
 	Camera::setInputHandler(*inputHandler_);
 	tileSet_ = new TileSet(32, 32, "../img/ground.png");
 	tileMap_ = new TileMap("../map/tileMap.txt", tileSet_);
-	god_ = new God(128, 128);
+	god_ = new God(128, 128, *tileMap_);
 }
 
 FirstLevelEditor::~FirstLevelEditor()

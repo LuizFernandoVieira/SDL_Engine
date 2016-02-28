@@ -10,6 +10,7 @@ class GameActor : public GameObject
 public:
 	virtual void moveTo(float x, float y) = 0;
 	virtual void jump() = 0;
+	virtual void placeTile(int x, int y) = 0;
 };
 
 #endif

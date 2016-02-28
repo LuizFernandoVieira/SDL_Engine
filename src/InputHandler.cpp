@@ -1,6 +1,7 @@
 #include "../include/InputHandler.hpp"
 #include "../include/JumpCommand.hpp"
 #include "../include/MoveCommand.hpp"
+#include "../include/PlaceTileCommand.hpp"
 
 InputHandler::InputHandler()
 {
@@ -9,6 +10,7 @@ InputHandler::InputHandler()
 	keyD_ = new MoveCommand(false, true, false, false);
 	keyW_ = new MoveCommand(true, false, false, false);
 	keyS_ = new MoveCommand(false, false, true, false);
+	keyT_ = new PlaceTileCommand(1, 1);
 
 	for (int i = 0; i < 6; i++) {
 		mouseState[i] = false;
@@ -66,6 +68,11 @@ std::vector<Command*> InputHandler::handleInput()
 			if(event.key.keysym.sym == SPACE_BAR)
 			{
 				commands.emplace_back(keySpace_);
+			}
+
+			if(event.key.keysym.sym == SDLK_t)
+			{
+				commands.emplace_back(keyT_);
 			}
 		}
 

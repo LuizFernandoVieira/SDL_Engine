@@ -19,8 +19,8 @@ public:
 	int getWidth() const;
 	int getHeight() const;
 	int getDepth() const;
-private:
 	std::vector<int> tileMatrix_;
+private:
 	TileSet* tileSet_;
 	int mapWidth_;
 	int mapHeight_;

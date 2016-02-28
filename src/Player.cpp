@@ -32,3 +32,8 @@ void Player::jump()
 {
 	std::cout << "JUMPING" << std::endl;
 }
+
+void Player::placeTile(int x, int y)
+{
+
+}

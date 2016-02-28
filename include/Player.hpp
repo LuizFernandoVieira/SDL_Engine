@@ -13,6 +13,7 @@ public:
 	void render();
 	void moveTo(float x, float y);
 	void jump();
+	void placeTile(int x, int y);
 private:
 	Sprite sprite_;
 };
