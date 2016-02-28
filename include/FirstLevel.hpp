@@ -4,6 +4,8 @@
 #include "ILevel.hpp"
 #include "State.hpp"
 #include "InputHandler.hpp"
+#include "TileSet.hpp"
+#include "TileMap.hpp"
 #include "Player.hpp"
 
 class FirstLevel : public ILevel
@@ -17,7 +19,9 @@ public:
 private:
 	State* state_;
 	InputHandler* inputHandler_;
-	Sprite* bg_;
+	TileSet* tileSet_;
+	TileMap* tileMap_;
+	// Sprite* bg_;
 	Player* player_;
 };
 

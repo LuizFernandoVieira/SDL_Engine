@@ -7,7 +7,9 @@ FirstLevel::FirstLevel(State& state)
 	state_ = &state;
 	inputHandler_ =  new InputHandler();
 	Camera::setInputHandler(*inputHandler_);
-	bg_ = new Sprite("../img/bg.png");
+	tileSet_ = new TileSet(32, 32, "../img/ground.png");
+	tileMap_ = new TileMap("../map/tileMap.txt", tileSet_);
+	// bg_ = new Sprite("../img/bg.png");
 	player_ = new Player(128, 128);
 	//Camera::follow(*player_);
 }
@@ -41,6 +43,10 @@ void FirstLevel::update(float dt)
 
 void FirstLevel::render()
 {
-	bg_->render(0, 0);
+	tileMap_->render(
+		Camera::getPosition().getX(), 
+		Camera::getPosition().getY()
+	);
+	// bg_->render(0, 0);
 	player_->render();
 }
