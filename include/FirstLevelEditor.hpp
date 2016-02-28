@@ -6,7 +6,7 @@
 #include "InputHandler.hpp"
 #include "TileSet.hpp"
 #include "TileMap.hpp"
-#include "Player.hpp"
+#include "God.hpp"
 
 class FirstLevelEditor : public ILevel
 {
@@ -21,7 +21,7 @@ private:
 	InputHandler* inputHandler_;
 	TileSet* tileSet_;
 	TileMap* tileMap_;
-	Player* player_;
+	God* god_;
 };
 
 #endif
