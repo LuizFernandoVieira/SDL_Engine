@@ -72,6 +72,7 @@ std::vector<Command*> InputHandler::handleInput()
 
 			if(event.key.keysym.sym == SDLK_t)
 			{
+				keyT_ = new PlaceTileCommand((int)mouseX/32, (int)mouseY/32);
 				commands.emplace_back(keyT_);
 			}
 		}

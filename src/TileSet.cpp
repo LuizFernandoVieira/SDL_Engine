@@ -6,9 +6,9 @@ TileSet::TileSet(int tileWidth, int tileHeight, const char* file)
 	tileHeight_ = tileHeight;
 
 	try {
-		tileSet_ = Sprite(file);
-		rows_ 		= (int) (tileSet_.getHeight()/tileHeight_);
-		columns_ 	= (int) (tileSet_.getWidth()/tileWidth_);
+		tileSet_ = new Sprite(file);
+		rows_ 		= (int) (tileSet_->getHeight()/tileHeight_);
+		columns_ 	= (int) (tileSet_->getWidth()/tileWidth_);
 	} catch(std::exception& ex) {
 		std::cout << "tileSet exception" << std::endl;
 		//throw ex;
@@ -24,12 +24,13 @@ void TileSet::render(unsigned index, float x, float y)
 		std::cout << "rows*cols: " << rows_*columns_ << std::endl;
 	}
 
-	tileSet_.setClip( 
+
+	tileSet_->setClip( 
 		(index%columns_) * tileWidth_,
 		(int)(index/columns_) * tileHeight_,
 	 	tileWidth_, tileHeight_ 
 	);
-	tileSet_.render(x, y);
+	tileSet_->render(x, y);
 }
 
 int TileSet::getTileWidth() const

@@ -8,6 +8,8 @@ TileMap::TileMap(const char* file, TileSet* tileSet)
 
 void TileMap::load(const char* file)
 {
+	tileMatrix_.clear();
+
 	std::ifstream ifs;
 	char comma;
 
@@ -33,7 +35,7 @@ void TileMap::load(const char* file)
 	{
 		ifs >> curValue;
 		ifs >> comma;
-		tileMatrix_.emplace_back(curValue - 1);
+		tileMatrix_.emplace_back(curValue);
 	}
 
 	ifs.close();
@@ -46,7 +48,7 @@ void TileMap::setTileSet(TileSet* tileSet)
 
 int& TileMap::at(int x, int y, int z)
 {
-	return tileMatrix_[ y + x*mapWidth_ + z*mapWidth_*mapHeight_ ];
+	return tileMatrix_[ x + y*mapWidth_ + z*mapWidth_*mapHeight_ ];
 }
 
 void TileMap::render(int cameraX, int cameraY)
@@ -58,11 +60,12 @@ void TileMap::render(int cameraX, int cameraY)
 
 void TileMap::renderLayer(int layer, int cameraX, int cameraY)
 {
+	// std::cout << "idj: " << at(31, 16, 0) << std::endl;
 	for (int i = 0; i < mapHeight_; i++) {
 		for (int j = 0; j < mapWidth_; j++) {
-			if (at(i, j, layer) >= 0)
+			if (at(j, i, layer) >= 0)
 				tileSet_->render( 
-					(unsigned)at(i, j, layer), 
+					(unsigned)at(j, i, layer), 
 					(float)(j * tileSet_->getTileWidth() - cameraX * layer), 
 					(float)(i * tileSet_->getTileHeight() - cameraY * layer) 
 				);

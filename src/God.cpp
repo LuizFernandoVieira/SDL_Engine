@@ -56,9 +56,12 @@ void God::placeTile(int x, int y)
 	fs >> mapDepth;
 	fs >> comma;
 
-	int location = y + x*mapWidth + 0*mapWidth*mapHeight;
+	int location = y*mapWidth + x + 0*mapWidth*mapHeight;
 	int withComma = 3;
 	int firstBreakLine = 2;
+
+	std::cout << "location: " << location << std::endl;
+	std::cout << "result: " << location*withComma+firstBreakLine+y << std::endl;
 
 	fs.seekp(fs.tellg(), std::ios_base::beg);
 	fs.seekp(location*withComma+firstBreakLine+y, std::ios_base::cur);
@@ -67,7 +70,14 @@ void God::placeTile(int x, int y)
 
 	fs.close();
 
-	tileMap_->tileMatrix_[location] = 02;
-	std::cout << "at: " << tileMap_->at(x, y, 0) << std::endl;
+	// tileMap_->tileMatrix_[location] = 02;
+	std::cout << "x: " << x << std::endl;
+	std::cout << "y: " << y << std::endl;
+	// std::cout << "at: " << tileMap_->at(x, y, 0) << std::endl;
+
+	std::cout << "size: " << tileMap_->tileMatrix_.size() << std::endl;
+	std::cout << "bla: " << x + y*mapWidth + 0*mapWidth*mapHeight << std::endl;
+
+	tileMap_->tileMatrix_[x + y*mapWidth + 0*mapWidth*mapHeight] = 02;
 }
 
