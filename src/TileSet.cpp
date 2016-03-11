@@ -24,7 +24,6 @@ void TileSet::render(unsigned index, float x, float y)
 		std::cout << "rows*cols: " << rows_*columns_ << std::endl;
 	}
 
-
 	tileSet_->setClip( 
 		(index%columns_) * tileWidth_,
 		(int)(index/columns_) * tileHeight_,
